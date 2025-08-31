@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Service</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-3 shadow bg-white">
+    <!-- Left: Logo + Title -->
+    <div class="flex items-center space-x-2">
+      <!-- এখানে তুমি নিজের govt logo বসাবে -->
+      <img src="assets/logo.png" alt="logo" class="w-8 h-8 rounded-full border">
+      <span class="font-bold text-lg text-gray-800">Emergency Service</span>
+    </div>
+
+    <!-- Right: Icons + Counts -->
+    <div class="flex items-center space-x-5">
+      <!-- Heart + count -->
+      <div class="flex items-center space-x-1">
+        <span class="text-red-500 text-xl">❤️</span>
+        <span id="loveCount" class="text-gray-800 font-medium">0</span>
+      </div>
+
+      <!-- Coin + count -->
+      <div class="flex items-center space-x-1">
+        <span class="text-yellow-500 text-xl">🪙</span>
+        <span id="coinCount" class="text-gray-800 font-medium">100</span>
+      </div>
+
+      <!-- Copy button -->
+      <button id="copyBtn" class="bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-1 rounded-full">
+        2 Copy
+      </button>
+    </div>
+  </nav>
+  <script>
+  // References
+  const loveCount = document.getElementById('loveCount');
+  const coinCount = document.getElementById('coinCount');
+  const copyBtn = document.getElementById('copyBtn');
+
+  // Heart click example
+  let loves = 0;
+  loveCount.parentElement.addEventListener('click', () => {
+    loves++;
+    loveCount.textContent = loves;
+  });
+
+  // Coin click example
+  let coins = 100;
+  coinCount.parentElement.addEventListener('click', () => {
+    coins++;
+    coinCount.textContent = coins;
+  });
+
+  // Copy button example
+  let copies = 2;
+  copyBtn.addEventListener('click', () => {
+    copies++;
+    copyBtn.textContent = `${copies} Copy`;
+    navigator.clipboard.writeText('Emergency Service Info').then(() => {
+      alert('Text copied to clipboard!');
+    });
+  });
+</script>
+
+</body>
+</html>
